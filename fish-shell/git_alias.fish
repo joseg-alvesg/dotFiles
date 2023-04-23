@@ -1,3 +1,4 @@
+
 alias ga="git add"
 alias gaa="git add --all"
 alias gacaula="git add --all && git commit -m 'aula'"
