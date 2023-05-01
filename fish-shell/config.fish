@@ -3,5 +3,6 @@ if status is-interactive
 	source $fish_function_path/git_alias.fish
 	source $fish_function_path/git_func.fish
 	source $fish_function_path/docker_alias.fish
+	source $fish_function_path/utility_func.fish
 	fastfetch
 end
