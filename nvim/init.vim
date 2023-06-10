@@ -14,11 +14,14 @@
 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+
+  Plug 'tpope/vim-commentary'
+  Plug 'github/copilot.vim'
 call plug#end()
 
 " Global Sets """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on            " Enable syntax highlight
-set relativenumber   " Enable line numbers
+set relativenumber   " Enable line relative numbers
 set tabstop=2        " Show existing tab with 2 spaces width
 set softtabstop=2    " Show existing tab with 2 spaces width
 set shiftwidth=2     " When indenting with '>', use 2 spaces width
@@ -61,13 +64,14 @@ colorscheme sonokai
 
 if (has("nvim")) "Transparent background. Only for nvim
     highlight Normal guibg=NONE ctermbg=NONE
+    highlight NormalNC guibg=NONE ctermbg=NONE
     highlight EndOfBuffer guibg=NONE ctermbg=NONE
 endif
 
 let g:airline_theme = 'sonokai'
 
 
-
+let mapleader = "\<Space>"
 
 " Remaps """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Shortcuts for split navigation
@@ -76,7 +80,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
+nnoremap <leader>b :ls<CR>:b<Space>
 
 " autocmd """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap<C-a> :NERDTreeToggle<CR>
@@ -252,6 +256,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Add `:Fold` command to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -370,3 +375,7 @@ nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 
 " List all presets
 nnoremap <space>el :CocList explPresets
+
+" Format Remap
+nnoremap <leader>fl :CocCommand eslint.executeAutofix<CR>
+nnoremap <leader>fp :Prettier<CR>

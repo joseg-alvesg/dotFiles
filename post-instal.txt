@@ -1,0 +1,1 @@
+lazygit lazydocker lazynpm zoom vivaldi-snapshot vivaldi-snapshot-ffmpeg-codecs stremio libreoffice-fresh notion-app mysql-workbench visual-studio-code-bin typora vlc
