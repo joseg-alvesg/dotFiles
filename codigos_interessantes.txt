@@ -1,1 +1,2 @@
 utiliza o fd e fzf pra realizar um busca bem estruturada: fd --type f | fzf-tmux -p --border --margin=0,1 --preview bat -f -P --plain {1} | xargs -r lvim
+setsid agetty --autologin cinho --noclear 19200 tty2 linux
