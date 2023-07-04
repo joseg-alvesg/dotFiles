@@ -35,7 +35,6 @@ bspc rule -a Stremio desktop='^8' follow=on
 bspc rule -a Slack desktop='^9'
 bspc rule -a zoom desktop='^9'
 bspc rule -a discord-screenaudio desktop='^9'
-bspc rule -a tmux state=floating
 bspc rule -a xfce4-terminal state=floating
 
 # Border
