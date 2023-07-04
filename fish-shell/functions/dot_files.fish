@@ -1,9 +1,7 @@
 function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   # create dirs if they dont exist
-  echo "creating dirs"
   mkdir -p $HOME/dotFiles/fish-shell/functions/
   mkdir -p $HOME/dotFiles/fish-shell/conf.d/
-  mkdir -p $HOME/dotFiles/fish-shell/themes/
   mkdir -p $HOME/dotFiles/vim_confs/nvim/
   mkdir -p $HOME/dotFiles/vim_confs/lvim/
   mkdir -p $HOME/dotFiles/bspwm/
@@ -12,37 +10,31 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   echo "done creating dirs"
 
   # copy the files from fish
-  echo "copying files from: fish"
-  cp -r $HOME/.config/fish/functions $HOME/dotFiles/fish-shell/
-  cp -r $HOME/.config/fish/conf.d/ $HOME/dotFiles/fish-shell/
-  cp -r $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
-  cp -r $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
-
-  echo "themes"
-  cp -r $HOME/.local/share/omf/themes/agnoster/ $HOME/dotFiles/fish-shell/themes/
-  echo "done copying files from fish"
+  cp -rv $HOME/.config/fish/functions $HOME/dotFiles/fish-shell/
+  cp -rv $HOME/.config/fish/conf.d/ $HOME/dotFiles/fish-shell/
+  cp -rv $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
+  cp -rv $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
+  echo "fish copy done"
 
   # copy the files from nvim
-  echo "copying files from: nvim "
-  cp -r $HOME/.config/nvim/ $HOME/dotFiles/vim_confs/nvim
+  cp -rv $HOME/.config/nvim/ $HOME/dotFiles/vim_confs/nvim
+  echo "nvim done"
 
   # copy the files from lvim
-  echo "lvim"
-  cp -r $HOME/.config/lvim/ $HOME/dotFiles/vim_confs/lvim
-  echo "done copying files from vim"
+  cp -rv $HOME/.config/lvim/ $HOME/dotFiles/vim_confs/lvim
+  echo "lvim done"
 
   # copy files from bspwm
-  echo "copying files from: bspwm"
-  cp -r $HOME/.config/bspwm/ $HOME/dotFiles/bspwm
+  cp -rv $HOME/.config/bspwm/ $HOME/dotFiles/bspwm
+  echo "bspwm done"
   
   # copy files from polybar
-  echo "polybar"
-  cp -r $HOME/.config/polybar/ $HOME/dotFiles/polybar
+  cp -rv $HOME/.config/polybar/ $HOME/dotFiles/polybar
+  echo "polybar done"
 
   # copy files from sxhkd
-  echo "sxhkd"
-  cp -r $HOME/.config/sxhkd/ $HOME/dotFiles/sxhkd
-  echo "done copying files from bspwm"
+  cp -rv $HOME/.config/sxhkd/ $HOME/dotFiles/sxhkd
+  echo "sxhkd done"
 
   cd $HOME/dotFiles
   if test -z $argv
@@ -51,5 +43,17 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
     git commit -am $argv
   end
   git push
-end
+  echo "pushed dotFiles"
 
+  cp -rv $HOME/.local/share/omf/themes/agnoster/ $HOME/personal-proj/theme-agnoster-fork/
+  echo "agnoster theme"
+
+  cd $HOME/personal-proj/theme-agnoster-fork/
+  if test -z $argv
+    git commit -am update
+  else
+    git commit -am $argv
+  end
+  git push
+  echo "pushed agnoster theme"
+end
