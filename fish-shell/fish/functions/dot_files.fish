@@ -45,7 +45,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   git push
   echo "pushed dotFiles"
 
-  cp -rv $HOME/.local/share/omf/themes/agnoster/ $HOME/personal-proj/theme-agnoster-fork/
+  cp -rv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
   echo "agnoster theme"
 
   cd $HOME/personal-proj/theme-agnoster-fork/
