@@ -38,9 +38,11 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
 
   cd $HOME/dotFiles
   if test -z $argv
-    git commit -am update
+    git add --all
+    git commit -m update
   else
-    git commit -am $argv
+    git add --all
+    git commit -m $argv
   end
   git push
   echo "pushed dotFiles"
@@ -50,9 +52,11 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
 
   cd $HOME/personal-proj/theme-agnoster-fork/
   if test -z $argv
-    git commit -am update
+    git add --all
+    git commit -m update
   else
-    git commit -am $argv
+    git add --all
+    git commit -m $argv
   end
   git push
   echo "pushed agnoster theme"
