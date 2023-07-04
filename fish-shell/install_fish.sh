@@ -11,15 +11,16 @@ elif [ -f /etc/arch-release ]; then
     sudo chsh -s $(which fish) 
     rm ./install
 fi
-mkdir -p ~/.config/fish/config.d/
-mkdir -p ~/.config/fish/functions/
+mkdir -p $OMF_CONFIG/config.d/
+mkdir -p $OMF_CONFIG/functions/
 
-fish -c "git clone https://github.com/joseg-alvesg/theme-agnoster-fork  "
+fish -c "omf install https://github.com/joseg-alvesg/theme-agnoster-fork  "
+mv $OMF_PATH/pkg/agnoster-fork $OMF_PATH/themes/
 
 fish -c "omf install fish-spec bak foreign-env config nvm ssh-config.d"
 
-cp ~/dotFiles/fish-shell/config.fish ~/.config/fish/config.fish
-cp -r ~/dotFiles/fish-shell/config.d/* ~/.config/fish/config.d/
-cp -r ~/dotFiles/fish-shell/functions/* ~/.config/fish/functions/
+cp ~/dotFiles/fish-shell/config.fish $OMF_CONFIG/config.fish
+cp -r ~/dotFiles/fish-shell/config.d/* $OMF_CONFIG/config.d/
+cp -r ~/dotFiles/fish-shell/functions/* $OMF_CONFIG/functions/
 
 fish
