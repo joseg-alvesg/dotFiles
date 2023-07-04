@@ -46,7 +46,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
 
   cd $HOME/dotFiles
   # commit -am $argv or "update" if no argv
-  set message (count $argv > /dev/null; and echo $argv; or echo "update")
+  set message (count $argv > /dev/null; and echo $argv[1]; or echo "update")
   git commit -am $message
   git push
 end
