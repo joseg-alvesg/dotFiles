@@ -45,9 +45,11 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   echo "done copying files from bspwm"
 
   cd $HOME/dotFiles
-  # commit -am $argv or "update" if no argv
-  echo $argv
-  set message (count $argv > /dev/null; and echo $argv[1]; or echo "update")
-  git commit -am $message
+  if test -z $argv
+    git commit -am update
+  else
+    git commit -am $argv
+  end
   git push
 end
+
