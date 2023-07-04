@@ -49,7 +49,6 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   echo "agnoster theme"
 
   cd $HOME/personal-proj/theme-agnoster-fork/
-  pwd
   if test -z $argv
     git commit -am update
   else
