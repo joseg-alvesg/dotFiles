@@ -45,7 +45,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   echo "done copying files from bspwm"
 
   cd $HOME/dotFiles
-  # commit -am $argv or "update"
-  git commit -am $argv || git commit -am "update"
+  # commit -am $argv or "update" if no argv
+  git commit -am "${argv:-update}"
   git push
 end
