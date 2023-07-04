@@ -14,7 +14,7 @@ fi
 mkdir -p $OMF_CONFIG/config.d/
 mkdir -p $OMF_CONFIG/functions/
 
-fish -c "omf install https://github.com/joseg-alvesg/theme-agnoster-fork  "
+fish -c "omf install https://github.com/joseg-alvesg/theme-agnoster-fork"
 mv $OMF_PATH/pkg/agnoster-fork $OMF_PATH/themes/
 
 fish -c "omf install fish-spec bak foreign-env config nvm ssh-config.d"
