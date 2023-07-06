@@ -40,11 +40,3 @@ cp -r ~/dotFiles/fish-shell/config.d/* $FISH_CONFIG/config.d/
 cp -r ~/dotFiles/fish-shell/functions/* $FISH_CONFIG/functions/
 
 fish
-
-cd /tmp
-curl -u "https://raw.githubusercontent.com/joseg-alvesg/dotFiles/main/fish-shell/install_fish.sh?token=GHSAT0AAAAAACCOI4C5MABH2VGFNQIFV76IZFEYCVQ" install_fish.sh
-chmod +x install_fish.sh
-bash install_fish.sh
-
-
- cd /tmp && wget -O install_fish.sh"https://raw.githubusercontent.com/joseg-alvesg/dotFiles/main/fish-shell/install_fish.sh?token=GHSAT0AAAAAACCOI4C5MABH2VGFNQIFV76IZFEYCVQ" && cat install | bash
