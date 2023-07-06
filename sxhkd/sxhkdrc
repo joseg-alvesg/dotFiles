@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	xfce4-terminal
+	alacritty
 
 # program launcher
 super + d
@@ -23,6 +23,10 @@ super + shift + d
 	rofi -modi drun -show ssh -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
                 -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+
+# lock screen
+super + shift + l
+  ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
 
 # power-menu
 super + shift + e

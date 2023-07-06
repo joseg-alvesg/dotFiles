@@ -7,35 +7,38 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   mkdir -p $HOME/dotFiles/bspwm/
   mkdir -p $HOME/dotFiles/polybar/
   mkdir -p $HOME/dotFiles/sxhkd/
-  echo "done creating dirs"
+  mkdir -p $HOME/dotFiles/alacritty/
+  mkdir -p $HOME/dotFiles/tmux/
+  mkdir -p $HOME/dotFiles/rofi/
 
   # copy the files from fish
-  cp -rv $HOME/.config/fish/functions $HOME/dotFiles/fish-shell/
-  cp -rv $HOME/.config/fish/conf.d/ $HOME/dotFiles/fish-shell/
-  cp -rv $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
-  cp -rv $HOME/.config/fish/ $HOME/dotFiles/fish-shell/
-  echo "fish copy done"
+  cp -rv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
 
   # copy the files from nvim
-  cp -rv $HOME/.config/nvim/ $HOME/dotFiles/vim_confs/nvim
-  echo "nvim done"
+  cp -rv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
 
   # copy the files from lvim
   cp -rv $HOME/.config/lvim/ $HOME/dotFiles/vim_confs/lvim
-  echo "lvim done"
 
   # copy files from bspwm
-  cp -rv $HOME/.config/bspwm/ $HOME/dotFiles/bspwm
-  echo "bspwm done"
+  cp -rv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
   
   # copy files from polybar
-  cp -rv $HOME/.config/polybar/ $HOME/dotFiles/polybar
-  echo "polybar done"
+  cp -rv $HOME/.config/polybar/* $HOME/dotFiles/polybar
 
   # copy files from sxhkd
-  cp -rv $HOME/.config/sxhkd/ $HOME/dotFiles/sxhkd
-  echo "sxhkd done"
+  cp -rv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
 
+  # copy files from alacritty
+  cp -rv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
+  
+  # copy files from tmux
+  cp -rv $HOME/.config/tmux/* $HOME/dotFiles/tmux
+
+  # copy files from rofi
+  cp -rv $HOME/.config/rofi/* $HOME/dotFiles/rofi
+
+  echo "pushing dotFiles to github"
   cd $HOME/dotFiles
   if test -z $argv
     git add --all
@@ -45,11 +48,10 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
     git commit -m $argv
   end
   git push
-  echo "pushed dotFiles"
 
   cp -rv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
-  echo "agnoster theme"
 
+  echo "pushing agnoster theme to github"
   cd $HOME/personal-proj/theme-agnoster-fork/
   if test -z $argv
     git add --all
@@ -59,5 +61,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
     git commit -m $argv
   end
   git push
-  echo "pushed agnoster theme"
+
+  cd $HOME
 end
+

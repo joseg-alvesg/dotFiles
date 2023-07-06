@@ -1,5 +1,5 @@
 {
-    "languageserver": {
-    },
-    "eslint.workingDirectories": ["eslintrc"]
+  "languageserver": {
+  },
+  "eslint.workingDirectories": ["eslintrc"]
 }

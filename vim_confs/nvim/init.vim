@@ -11,9 +11,14 @@
   Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'kabouzeid/nvim-lspinstall'
 
   Plug 'tpope/vim-commentary'
   Plug 'github/copilot.vim'
@@ -110,14 +115,11 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 1
 
-" Telescope """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Telescope """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     nnoremap <leader>ff <cmd>Telescope find_files<cr>
     nnoremap <leader>fg <cmd>Telescope live_grep<cr>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-
-
 
 
 " COC CONQUER OF COMPLETION """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
