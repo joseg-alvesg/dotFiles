@@ -31,6 +31,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
 
   # copy files from alacritty
   cp -rv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
+  rm -rf $HOME/dotFiles/alacritty/themes/.git/
   
   # copy files from tmux
   cp -rv $HOME/.config/tmux/* $HOME/dotFiles/tmux
