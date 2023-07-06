@@ -34,7 +34,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   rm -rf $HOME/dotFiles/alacritty/themes/.git/
   
   # copy files from tmux
-  cp -rv $HOME/.config/tmux/* $HOME/dotFiles/tmux
+  cp -rv $HOME/.tmux.conf $HOME/dotFiles/tmux
 
   # copy files from rofi
   cp -rv $HOME/.config/rofi/* $HOME/dotFiles/rofi
