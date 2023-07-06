@@ -1,5 +1,5 @@
 cd $HOME
-git clone https://raw.githubusercontent.com/joseg-alvesg/dotFiles --depth=1 && cd $HOME/dotFile
+git clone https://github.com/joseg-alvesg/dotFiles.git --depth=1 && cd $HOME/dotFile
 
 # Install yay
 sudo pacman -S --needed --noconfirm git base-devel
