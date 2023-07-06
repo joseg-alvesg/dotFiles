@@ -1,6 +1,7 @@
+alacritty
+tmux
 lazygit
 lazydocker
-lazynpm
 zoom
 vivaldi
 snapshot
@@ -28,5 +29,5 @@ rofi
 polybar
 nitrogen
 xfce4
-power
+powerline-fonts
 manager
