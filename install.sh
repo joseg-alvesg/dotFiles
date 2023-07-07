@@ -6,7 +6,7 @@ FISH_CONFIG=~/.config/fish
 # Install fish                 #
 #################################
 
-# clone and install
+# clone and omf
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 chmod +x ./install
 fish install --noninteractive --path=~/.local/share/omf --config=~/.config/omf

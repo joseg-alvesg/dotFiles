@@ -21,6 +21,9 @@ for i in $(cat ./dependencies.txt); do
   fi
 done
 
+# isntall fish
+yay -S --noconfirm fish
+
 #install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 nvm install 18
