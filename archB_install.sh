@@ -14,10 +14,16 @@ cd $HOME/dotFiles
 
 # include dependencies for lunarvim
 for i in $(cat ./dependencies.txt); do
-  if ! yay -Qi &> /dev/null; then
+  if yay -Qi &> /dev/null; then
+    yay -S --needed --noconfirm $i
+    if [ $? -ne 0 ]; then
+      echo -e "\e[1;31mError installing \e[0m $i" >> general_dep
+    fi
+  elif ! yay -Qi &> /dev/null; then
     sudo pacman -Syy --needed --noconfirm $i
-  elif yay -Qi &> /dev/null; then
-    yay -S --noconfirm $i
+    if [ $? -ne 0 ]; then
+      echo -e "\e[1;31mError installing: \e[0m $i" >> general_dep
+    fi
   fi
 done
 
