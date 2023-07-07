@@ -71,4 +71,4 @@ mkdir -p $HOME/.config/alacritty/themes
 
 # copy config files
 cp -aRv $HOME/dotFiles/alacritty/* $HOME/.config/alacritty/
-cp -aRv $HOME/dotFiles/tmux/* $HOME
+cp -aRv $HOME/dotFiles/tmux/.tmux.conf $HOME
