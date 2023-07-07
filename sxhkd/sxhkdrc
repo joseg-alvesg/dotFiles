@@ -25,7 +25,7 @@ super + shift + d
                 -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
 
 # lock screen
-super + shift + l
+super + x
   ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
 
 # power-menu
