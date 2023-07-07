@@ -13,7 +13,6 @@ gettext
 libtool
 libtool-bin
 autoconf
-g++
 pkg-config
 unzip
 dnust

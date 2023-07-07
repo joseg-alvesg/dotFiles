@@ -1,6 +1,4 @@
 cd $HOME
-git clone https://github.com/joseg-alvesg/dotFiles.git --depth=1 && cd $HOME/dotFile
-
 # Install dependencies
 sudo pacman -S --needed --noconfirm git base-devel
 
@@ -8,6 +6,11 @@ sudo pacman -S --needed --noconfirm git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && rm -rf yay
 yay -Y --gendb
 yay -Syu --noconfirm --devel
+
+# clone dotFiles
+cd $HOME
+git clone https://github.com/joseg-alvesg/dotFiles.git --depth=1
+cd $HOME/dotFiles
 
 # include dependencies for lunarvim
 for i in $(cat ./dependencies.txt); do
