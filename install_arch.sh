@@ -10,7 +10,7 @@ yay -Y --gendb
 yay -Syu --noconfirm --devel
 
 # include dependencies for lunarvim
-for i in $(cat ./post-install.txt); do
+for i in $(cat ./dependencies.txt); do
   if ! yay -Qi &> /dev/null; then
     sudo pacman -Syy --needed --noconfirm $i
   elif yay -Qi &> /dev/null; then
