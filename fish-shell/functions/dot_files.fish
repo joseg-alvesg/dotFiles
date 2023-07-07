@@ -11,45 +11,41 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   mkdir -p $HOME/dotFiles/tmux/
   mkdir -p $HOME/dotFiles/rofi/
   mkdir -p $HOME/dotFiles/picom/
-  mkdir -p $HOME/dotFiles/dunst
-  mkdir -p $HOME/dotFiles/fonts
+  mkdir -p $HOME/dotFiles/dunst/
 
   # copy the files from fish
-  cp -aRv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
+  cp -rv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
 
   # copy the files from nvim
-  cp -aRv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
+  cp -rv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
 
   # copy the files from lvim
-  cp -aRv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
+  cp -rv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
 
   # copy files from bspwm
-  cp -aRv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
+  cp -rv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
   
   # copy files from polybar
-  cp -aRv $HOME/.config/polybar/* $HOME/dotFiles/polybar
+  cp -rv $HOME/.config/polybar/* $HOME/dotFiles/polybar
 
   # copy files from sxhkd
-  cp -aRv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
+  cp -rv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
 
   # copy files from alacritty
-  cp -aRv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
+  cp -rv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
   rm -rf $HOME/dotFiles/alacritty/themes/.git/
   
-  # copy files from dunst
-  cp -aRv $HOME/.config/dunst/* $HOME/dotFiles/dunst
+  # copy files from tmux
+  cp -rv $HOME/.tmux.conf $HOME/dotFiles/tmux
 
   # copy files from rofi
-  cp -aRv $HOME/.config/rofi/* $HOME/dotFiles/rofi
-
-  # copy files from fonts
-  cp -aRv $HOME/.local/share/fonts/* $HOME/dotFiles/fonts
-
-  # copy files from tmux
-  cp -v $HOME/.tmux.conf $HOME/dotFiles/tmux/
+  cp -rv $HOME/.config/rofi/* $HOME/dotFiles/rofi
 
   # copy files from picom
-  cp -aRv $HOME/.config/picom.conf $HOME/dotFiles/picom
+  cp -rv $HOME/.config/picom.conf $HOME/dotFiles/picom
+
+  # copy files from dunst
+  cp -rv $HOME/.config/dunst/* $HOME/dotFiles/dunst
 
   echo "pushing dotFiles to github"
   cd $HOME/dotFiles
@@ -62,7 +58,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   end
   git push
 
-  cp -aRv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
+  cp -rv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
 
   echo "pushing agnoster theme to github"
   cd $HOME/personal-proj/theme-agnoster-fork/
