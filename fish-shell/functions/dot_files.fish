@@ -12,6 +12,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   mkdir -p $HOME/dotFiles/rofi/
   mkdir -p $HOME/dotFiles/picom/
   mkdir -p $HOME/dotFiles/dunst
+  mkdir -p $HOME/dotFiles/fonts
 
   # copy the files from fish
   cp -aRv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
@@ -35,11 +36,20 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   cp -aRv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
   rm -rf $HOME/dotFiles/alacritty/themes/.git/
   
-  # copy files from tmux
-  cp -v $HOME/.tmux.conf $HOME/dotFiles/tmux/
+  # copy files from dunst
+  cp -aRv $HOME/.config/dunst/* $HOME/dotFiles/dunst
 
   # copy files from rofi
   cp -aRv $HOME/.config/rofi/* $HOME/dotFiles/rofi
+
+  # copy files from fonts
+  cp -aRv $HOME/.local/share/fonts/* $HOME/dotFiles/fonts
+
+  # copy files from tmux
+  cp -v $HOME/.tmux.conf $HOME/dotFiles/tmux/
+
+  # copy files from picom
+  cp -aRv $HOME/.config/picom.conf $HOME/dotFiles/picom
 
   echo "pushing dotFiles to github"
   cd $HOME/dotFiles
