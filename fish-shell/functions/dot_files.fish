@@ -10,6 +10,8 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   mkdir -p $HOME/dotFiles/alacritty/
   mkdir -p $HOME/dotFiles/tmux/
   mkdir -p $HOME/dotFiles/rofi/
+  mkdir -p $HOME/dotFiles/picom/
+  mkdir -p $HOME/dotFiles/dunst
 
   # copy the files from fish
   cp -rv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
@@ -18,7 +20,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   cp -rv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
 
   # copy the files from lvim
-  cp -rv $HOME/.config/lvim/ $HOME/dotFiles/vim_confs/lvim
+  cp -rv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
 
   # copy files from bspwm
   cp -rv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
