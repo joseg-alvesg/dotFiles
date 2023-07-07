@@ -14,32 +14,32 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   mkdir -p $HOME/dotFiles/dunst
 
   # copy the files from fish
-  cp -rv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
+  cp -aRv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
 
   # copy the files from nvim
-  cp -rv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
+  cp -aRv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
 
   # copy the files from lvim
-  cp -rv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
+  cp -aRv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
 
   # copy files from bspwm
-  cp -rv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
+  cp -aRv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
   
   # copy files from polybar
-  cp -rv $HOME/.config/polybar/* $HOME/dotFiles/polybar
+  cp -aRv $HOME/.config/polybar/* $HOME/dotFiles/polybar
 
   # copy files from sxhkd
-  cp -rv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
+  cp -aRv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
 
   # copy files from alacritty
-  cp -rv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
+  cp -aRv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
   rm -rf $HOME/dotFiles/alacritty/themes/.git/
   
   # copy files from tmux
-  cp -rv $HOME/.tmux.conf $HOME/dotFiles/tmux
+  cp -v $HOME/.tmux.conf $HOME/dotFiles/tmux/
 
   # copy files from rofi
-  cp -rv $HOME/.config/rofi/* $HOME/dotFiles/rofi
+  cp -aRv $HOME/.config/rofi/* $HOME/dotFiles/rofi
 
   echo "pushing dotFiles to github"
   cd $HOME/dotFiles
@@ -52,7 +52,7 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   end
   git push
 
-  cp -rv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
+  cp -aRv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
 
   echo "pushing agnoster theme to github"
   cd $HOME/personal-proj/theme-agnoster-fork/

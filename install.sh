@@ -26,9 +26,9 @@ mv -v $OMF_PATH/pkg/agnoster-fork $OMF_PATH/themes/
 fish -c "omf install fish-spec bak foreign-env config nvm ssh-config.d"
 
 # copy config files
-cp -v $HOME/dotFiles/fish-shell/config.fish $FISH_CONFIG/config.fish
-cp -rv $HOME/dotFiles/fish-shell/config.d/* $FISH_CONFIG/config.d/
-cp -rv $HOME/dotFiles/fish-shell/functions/* $FISH_CONFIG/functions/
+cp -aRv $HOME/dotFiles/fish-shell/config.fish $FISH_CONFIG/config.fish
+cp -aRv $HOME/dotFiles/fish-shell/config.d/* $FISH_CONFIG/config.d/
+cp -aRv $HOME/dotFiles/fish-shell/functions/* $FISH_CONFIG/functions/
 
 #################################
 # Install lunarvim / neovim    #
@@ -39,8 +39,8 @@ mkdir -p $HOME/.config/lvim
 mkdir -p $HOME/.config/nvim
 
 # copy config files
-cp -v $HOME/dotFiles/vim_confs/lvim/* $HOME/.config/lvim/
-cp -v $HOME/dotFiles/vim_confs/nvim/* $HOME/.config/nvim/
+cp -aRv $HOME/dotFiles/vim_confs/lvim/* $HOME/.config/lvim/
+cp -aRv $HOME/dotFiles/vim_confs/nvim/* $HOME/.config/nvim/
 
 #################################
 # Install bspwm                #
@@ -54,12 +54,12 @@ mkdir -p $HOME/.config/rofi/
 mkdir -p $HOME/.config/dunst/
 
 # copy config files
-cp -v $HOME/dotFiles/bspwm/* $HOME/.config/bspwm/
-cp -v $HOME/dotFiles/sxhkd/* $HOME/.config/sxhkd/
-cp -v $HOME/dotFiles/polybar/* $HOME/.config/polybar/
-cp -v $HOME/dotFiles/rofi/* $HOME/.config/rofi/
-cp -v $HOME/dotFiles/dunst/* $HOME/.config/dunst/
-cp -v $HOME/dotFiles/picom/* $HOME/.config/
+cp -aRv $HOME/dotFiles/bspwm/* $HOME/.config/bspwm/
+cp -aRv $HOME/dotFiles/sxhkd/* $HOME/.config/sxhkd/
+cp -aRv $HOME/dotFiles/polybar/* $HOME/.config/polybar/
+cp -aRv $HOME/dotFiles/rofi/* $HOME/.config/rofi/
+cp -aRv $HOME/dotFiles/dunst/* $HOME/.config/dunst/
+cp -aRv $HOME/dotFiles/picom/* $HOME/.config/
 
 #################################
 # install alacritty / tmux     #
@@ -70,5 +70,5 @@ mkdir -p $HOME/.config/alacritty/fonts
 mkdir -p $HOME/.config/alacritty/themes
 
 # copy config files
-cp -v $HOME/dotFiles/alacritty/* $HOME/.config/alacritty/
-cp -v $HOME/dotFiles/tmux/* $HOME
+cp -aRv $HOME/dotFiles/alacritty/* $HOME/.config/alacritty/
+cp -aRv $HOME/dotFiles/tmux/* $HOME
