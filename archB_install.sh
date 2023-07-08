@@ -12,6 +12,8 @@ cd $HOME
 git clone https://github.com/joseg-alvesg/dotFiles.git --depth=1
 cd $HOME/dotFiles
 
+sudo su
+
 # include dependencies for lunarvim
 for i in $(cat ./dependencies.txt); do
   if yay -Qi &> /dev/null; then
