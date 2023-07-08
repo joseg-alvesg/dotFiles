@@ -1,3 +1,11 @@
+xorg
+xorg-init
+base-devel
+sxhkd
+feh
+rofi
+firefox
+bspwm
 neovim
 curl
 arandr
