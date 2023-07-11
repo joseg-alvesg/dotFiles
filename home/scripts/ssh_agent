@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function ssh_agent {
+    eval "$(keychain --quiet --eval $SSH_KEYS_TO_AUTOLOAD)"
+    . $HOME/.keychain/$HOSTNAME-sh
+}
+
+ssh_agent
+

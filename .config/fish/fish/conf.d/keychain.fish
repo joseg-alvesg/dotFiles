@@ -7,8 +7,7 @@ if status is-interactive
     and kill -0 $SSH_AGENT_PID
     and grep -q '^ssh-agent' /proc/$SSH_AGENT_PID/cmdline
   end
-    keychain --quiet --noask --eval $SSH_KEYS_TO_AUTOLOAD | source
+    bash ~/scripts/ssh_agent
   else
   end
-
 end

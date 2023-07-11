@@ -1,6 +1,7 @@
 function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   # create dirs if they dont exist
   mkdir -p $HOME/dotFiles/.config/
+  mkdir -p $HOME/dotFiles/home/
 
   # copy files
   cp -Rv $HOME/.config/nvim/ $HOME/dotFiles/.config/
@@ -17,17 +18,8 @@ function dot_files --description 'copy the files i need to $HOME/dotFiles/'
   cp -Rv $HOME/.config/sxhkd/ $HOME/dotFiles/.config/
   cp -Rv $HOME/.config/fish/ $HOME/dotFiles/.config/fish/
   cp -v $HOME/.config/picom.conf $HOME/dotFiles/.config/
-
-
-  # echo "pushing dotFiles to github"
-  # cd $HOME/dotFiles
-  # if test -z $argv
-  #   git add --all
-  #   git commit -m update
-  # else
-  #   git add --all
-  #   git commit -m $argv
-  # end
-  # git push
+  cp -v $HOME/.tmux.conf $HOME/dotFiles/home/
+  cp -v $HOME/.xinitrc $HOME/dotFiles/home/
+  cp -Rv $HOME/scripts/ $HOME/dotFiles/home/
 end
 
