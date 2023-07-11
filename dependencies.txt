@@ -1,3 +1,5 @@
+dex
+mesa-utils
 xorg
 xorg-init
 base-devel
