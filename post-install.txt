@@ -10,8 +10,7 @@ libreoffice-fresh
 notion-app
 mysql
 workbench
-visual
-studio-code-bin
+visualstudio-code-bin
 typora
 vlc
 ranger
