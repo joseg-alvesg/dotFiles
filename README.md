@@ -27,8 +27,10 @@ curl install_fish.sh"https://raw.githubusercontent.com/joseg-alvesg/dotFiles/mai
 # Lembrar de mudar render do picom.conf de glx pra xrender se tiver congelando
 
 ## todo:
-### [] Testar UbuntuB_install
-### [] Confirmar arch
-### [] fazer o READEME
-### [] notas das distros testadas
-### [] lembrar se existe mais todo's
+### [ ] Testar UbuntuB_install
+### [ ] Confirmar arch
+### [ ] fazer o READEME
+### [ ] notas das distros testadas
+### [ ] lembrar se existe mais todo's
+
+Base Eos community retirando muito peso

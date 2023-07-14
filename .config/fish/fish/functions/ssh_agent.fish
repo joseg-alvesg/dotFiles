@@ -1,3 +1,14 @@
-function ssh_agent --description 'Starts ssh-agent and loads keys from 1Password'
-  keychain --quiet --eval $SSH_KEYS_TO_AUTOLOAD | source
+function ssh_agent
+    if pgrep -x "ssh-agent" > /dev/null
+        set -gx SSH_AUTH_SOCK (find /tmp/ssh-* -name "agent.*" -user $USER -print -quit)
+        set -gx SSH_AGENT_PID (pgrep -x "ssh-agent")
+        echo "Reusing existing ssh-agent: $SSH_AUTH_SOCK"
+    else
+        eval (ssh-agent -s)
+        for key_path in $SSH_KEYS_TO_AUTOLOAD
+            if test -f $key_path
+                ssh-add -k $key_path
+            end
+        end
+    end
 end

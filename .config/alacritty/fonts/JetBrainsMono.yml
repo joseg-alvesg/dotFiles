@@ -1,15 +1,15 @@
 font:
   normal:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono NFP
     style: Medium
   bold:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono NFP
     style: Bold
   italic:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono NFP
     style: Italic
   bold_italic:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono NFP
     style: Bold Italic
   size: 9
   draw_bold_text_with_bright_colors: true

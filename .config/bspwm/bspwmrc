@@ -52,7 +52,7 @@ nitrogen --restore &
 # Dex
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/  &
 # Picom
- picom -b &
+picom -b &
 # Network Applet
 nm-applet --indicator &
 
@@ -68,4 +68,3 @@ xfce4-power-manager &
 
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh
-
