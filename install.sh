@@ -21,6 +21,12 @@ mv -v $OMF_PATH/pkg/agnoster-fork $OMF_PATH/themes/
 fish -c "omf install fish-spec bak foreign-env config nvm ssh-config.d"
 
 #################################
+# Install Plug Neovim           #
+#################################
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+#################################
 # Copy .config                  #
 #################################
 cp -Rv .config/ $HOME/
