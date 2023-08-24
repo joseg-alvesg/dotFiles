@@ -1,5 +1,5 @@
 -- general
-vim.opt.shell = "/bin/sh"
+vim.opt.shell = "/bin/bash"
 vim.opt.relativenumber = true
 -- vim.opt.colorcolumn = "80"
 lvim.log.level = "warn"
@@ -21,6 +21,9 @@ lvim.keys.normal_mode["<leader>lg"] = ":!eslint_d --fix %<CR>, { silent = true }
 lvim.keys.normal_mode["<leader>bk"] = ":BufferKill<CR>"
 -- exec python files
 lvim.keys.normal_mode["<leader>lp"] = ":exec '!python3' shellescape(@%, 1)<CR>"
+
+lvim.transparent_window = true
+lvim.colorscheme = "tokyonight"
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -78,6 +81,12 @@ lvim.plugins = {
       })
     end
   },
+  -- markdown preview
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = "markdown",
+  },
   { "wakatime/vim-wakatime"},
   { "justinmk/vim-sneak" },
   { "github/copilot.vim" },
@@ -87,11 +96,11 @@ lvim.plugins = {
   { "folke/tokyonight.nvim" },
   -- for python
   {
-  "AckslD/swenv.nvim",
-  "stevearc/dressing.nvim",
-  "mfussenegger/nvim-dap-python",
-  "nvim-neotest/neotest",
-  "nvim-neotest/neotest-python",
+    "AckslD/swenv.nvim",
+    "stevearc/dressing.nvim",
+    "mfussenegger/nvim-dap-python",
+    "nvim-neotest/neotest",
+    "nvim-neotest/neotest-python",
   }
 }
 
@@ -158,6 +167,7 @@ require("swenv").setup({ get_venvs = function(venvs_path)
     vim.cmd("LspRestart")
   end,
 })
+
 
 -- binding for switching
 lvim.builtin.which_key.mappings["C"] = {

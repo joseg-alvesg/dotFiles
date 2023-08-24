@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# Rotate tree
+super + shift + {f,g}
+    bspc node @/ -C {forward,backward}
+
 # program launcher
 super + d
 	rofi -modi drun -show drun -line-padding 4 \
@@ -186,8 +190,13 @@ super + w
   vivaldi-snapshot
 
 super + n
-  thunar
+  pcmanfm
+
+super + shift + n
+  bash -c "xkill"
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
 
+super + {_,shift + } u
+  {CM_LAUNCHER=rofi clipmenu, ~/.config/rofi/clipmenu_toggle.sh}
