@@ -56,7 +56,7 @@ else
 fi
 
 # Remove backup file
-rm -rf "$home_backup"
+rm -rf "$backup_dir"
 
 # remove old backup drivre
 find "$drive_path/backup" -mtime +30 -delete
