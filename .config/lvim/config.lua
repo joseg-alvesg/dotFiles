@@ -175,3 +175,15 @@ lvim.builtin.which_key.mappings["C"] = {
   -- c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
   c = { "<cmd>lua require('swenv.api').pick_venv({venv_dir = '~/.virtualenvs/'})<cr>", "Choose Env" },
 }
+lvim.builtin.which_key.mappings["o"] = {
+name = "others",
+  b = { "<cmd>norm yssb<cr>", "Entire line with ()" },
+  B = { "<cm>'<,'>norm yssb<cr>", "Entire line with ()" },
+  k = { "<cmd>norm yss}<cr>", "Entire line with {}" },
+  K = { "<cm>'<,'>norm yss}<cr>", "Entire line with {}" },
+  c = { "<cmd>norm yss]<cr>", "Entire line with []" },
+  C = { "<cm>'<,'>norm yss]<cr>", "Entire line with []" },
+  w = { "<cmd>norm yss\"<cr>", "Entire line with \"\"" },
+  W = { "<cm>'<,'>norm yss\"<cr>", "Entire line with \"\"" },
+  y = { "<cmd>norm ysiw\"<cr>", "one word with \" " },
+}

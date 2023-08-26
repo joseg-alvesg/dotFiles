@@ -1,8 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:159694
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXXsBCk4f/agent\x2e159693
+SETUVAR --export SHELL:/bin/sh
+SETUVAR --export SSH_AGENT_PID:3133510\x3b\x20export\x20SSH_AGENT_PID\x3b
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXX62y3n9/agent\x2e443452
+SETUVAR --export SSH_AUTH_SOCKET:/run/user/1000/ssh\x2dagent\x2esocket
 SETUVAR SSH_KEYS_TO_AUTOLOAD:/home/cinho/\x2essh/ssh\x2dkey\x2dgit\x2djgag
+SETUVAR SXHKD_SHELL:/bin/dash
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
@@ -46,8 +49,8 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/cinho/\x2elocal/bin/\x1e/usr/local/bin
-SETUVAR lvim:/home/cinho/\x2elocal/bin/lvim
+SETUVAR fish_user_paths:/home/cinho/scripts/\x1e/usr/local/bin/\x1e/home/cinho/\x2elocal/bin/
+SETUVAR lvim:/home/cinho/\x2elocal/bin/\x1e/home/cinho/scripts/
 SETUVAR tide_aws_bg_color:normal
 SETUVAR tide_aws_color:FF9900
 SETUVAR tide_aws_icon:\uf270

@@ -1,76 +1,33 @@
 function dot_files --description 'copy the files i need to $HOME/dotFiles/'
+  # vars
+  echo "copying files to $HOME/dotFiles/"
+  set home /home/$(whoami)/.config
+  echo $home
+  set config_path /home/$(whoami)/dotFiles/.config
+  echo $config_path
+  set home_path /home/$(whoami)/dotFiles/home
+  echo $home_path
+  set config_files "nvim" "alacritty" "autostart" "bspwm" "dunst" "polybar" "rofi" "coc" "lvim" "neofetch" "redshift" "sxhkd" "fish" "picom.conf"
+  echo $config_files
+  set home_files ".tmux.conf" ".xinitrc" "scripts"
+  echo $home_files
+
+
   # create dirs if they dont exist
-  mkdir -p $HOME/dotFiles/fish-shell/functions/
-  mkdir -p $HOME/dotFiles/fish-shell/conf.d/
-  mkdir -p $HOME/dotFiles/vim_confs/nvim/
-  mkdir -p $HOME/dotFiles/vim_confs/lvim/
-  mkdir -p $HOME/dotFiles/bspwm/
-  mkdir -p $HOME/dotFiles/polybar/
-  mkdir -p $HOME/dotFiles/sxhkd/
-  mkdir -p $HOME/dotFiles/alacritty/
-  mkdir -p $HOME/dotFiles/tmux/
-  mkdir -p $HOME/dotFiles/rofi/
-  mkdir -p $HOME/dotFiles/picom/
-  mkdir -p $HOME/dotFiles/dunst/
+  mkdir -p $config_path
+  mkdir -p $home_path
 
-  # copy the files from fish
-  cp -rv $HOME/.config/fish/* $HOME/dotFiles/fish-shell/
-
-  # copy the files from nvim
-  cp -rv $HOME/.config/nvim/* $HOME/dotFiles/vim_confs/nvim
-
-  # copy the files from lvim
-  cp -rv $HOME/.config/lvim/* $HOME/dotFiles/vim_confs/lvim
-
-  # copy files from bspwm
-  cp -rv $HOME/.config/bspwm/* $HOME/dotFiles/bspwm
-  
-  # copy files from polybar
-  cp -rv $HOME/.config/polybar/* $HOME/dotFiles/polybar
-
-  # copy files from sxhkd
-  cp -rv $HOME/.config/sxhkd/* $HOME/dotFiles/sxhkd
-
-  # copy files from alacritty
-  cp -rv $HOME/.config/alacritty/* $HOME/dotFiles/alacritty
-  rm -rf $HOME/dotFiles/alacritty/themes/.git/
-  
-  # copy files from tmux
-  cp -rv $HOME/.tmux.conf $HOME/dotFiles/tmux
-
-  # copy files from rofi
-  cp -rv $HOME/.config/rofi/* $HOME/dotFiles/rofi
-
-  # copy files from picom
-  cp -rv $HOME/.config/picom.conf $HOME/dotFiles/picom
-
-  # copy files from dunst
-  cp -rv $HOME/.config/dunst/* $HOME/dotFiles/dunst
-
-  echo "pushing dotFiles to github"
-  cd $HOME/dotFiles
-  if test -z $argv
-    git add --all
-    git commit -m update
-  else
-    git add --all
-    git commit -m $argv
+  # copy files
+  for file in $config_files
+    echo $file
+    cp -Rv $home/$file $config_path
   end
-  git push
 
-  cp -rv $HOME/.local/share/omf/themes/agnoster/* $HOME/personal-proj/theme-agnoster-fork/
-
-  echo "pushing agnoster theme to github"
-  cd $HOME/personal-proj/theme-agnoster-fork/
-  if test -z $argv
-    git add --all
-    git commit -m update
-  else
-    git add --all
-    git commit -m $argv
+  for file in $home_files
+    echo $file
+    cp -Rv $HOME/$file $home_path
   end
-  git push
 
-  cd $HOME
+  dunstify -r 1 "dotFiles" "copied files to $HOME/dotFiles/"
 end
 

@@ -11,6 +11,8 @@ log_path="/home/$(whoami)/scripts/log"
 date_format=$(date +%d-%m-%Y)
 backup_file="backup_$date_format.tar"
 
+# Create backup directories
+mkdir -p "$backup_dir" "$dot_files_backup" "$home_backup" "$local_backup"
 
 copy_dot_files() {
   config_dir="$home_dir/.config"

@@ -37,6 +37,8 @@ bspc rule -a WebApp-Gmail3305 desktop='^7'
 bspc rule -a WebApp-googlemeet4031 desktop='^9'
 bspc rule -a WebApp-whatsapp1910 desktop='^10'
 
+bspc rule -a game state=floating sticky=on rectangle=440x110+910+640 monitor HDMI-1
+
 # Border
 bspc config focused_border_color        "#6c71c4"
 bspc config normal_border_color         "#073642"
