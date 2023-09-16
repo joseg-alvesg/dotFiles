@@ -29,7 +29,7 @@ super + shift + d
                 -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
 
 # lock screen
-super + x
+Pause
   ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
 
 # power-menu
@@ -43,6 +43,9 @@ super + Escape
 #
 # bspwm hotkeys
 #
+
+Scroll_Lock
+  ~/scripts/toggle_led.sh
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -185,13 +188,19 @@ Print
 super + Print
   ~/.config/bspwm/scripts/screenshot.sh
 
+#
 # Shortcuts
+#
+
+# start vivald
 super + w
   vivaldi-snapshot
 
+# start file
 super + n
   pcmanfm
 
+# sniper
 super + shift + n
   bash -c "xkill"
 

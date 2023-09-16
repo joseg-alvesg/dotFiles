@@ -1,6 +1,5 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-# Variables
 home_dir="/home/$(whoami)"
 backup_dir="/home/$(whoami)/backup"
 dot_files_backup="/home/$(whoami)/backup/dotFiles"
@@ -8,10 +7,9 @@ home_backup="/home/$(whoami)/backup/home"
 local_backup="/home/$(whoami)/backup/home/local/home/share"
 drive_path="/home/$(whoami)/clouds/drive"
 log_path="/home/$(whoami)/scripts/log"
-date_format=$(date +%d-%m-%Y)
-backup_file="backup_$date_format.tar"
+date_format=$(date +%d-%m-%Y) backup_file="backup_$date_format.tar.gz"
 
-# Create backup directories
+# Create backup directories mkdir -p "$backup_dir" "$dot_files_backup" "$home_backup" "$local_backup"
 mkdir -p "$backup_dir" "$dot_files_backup" "$home_backup" "$local_backup"
 
 copy_dot_files() {
@@ -48,11 +46,20 @@ copy_home_files
 
 printf "Backup realizado com sucesso em $date_format" >> "$log_path"
 if tar -cf - "$backup_dir/" | pv -s $(du -sb "$backup_dir/" | awk '{print $1}') | gzip > "$drive_path/backup/$backup_file"; then
-    cd "$drive_path" && grive
-    printf "Backup realizado com sucesso em $date_format" >> "$log_path"
-    dunstify -u normal -t 7000 -i "$home/.config/dunst/icons/backup.png" "Backup realizado com sucesso em $date_format"
+    cd "$drive_path"
+    grive
+    if [ $? -eq 0 ]; then
+        printf "Backup realizado com sucesso em [$date_format]\n" >> "$log_path. "
+        dunstify -u normal -t 6500 -i "$home/.config/dunst/icons/backup.png" "Backup realizado com sucesso em $date_format"
+    else
+        printf "Erro ao realizar backup em $date_format" >> "$log_path"
+        rm -rf "$backup_dir"
+        exit 1
+    fi
+    printf "Backup realizado com sucesso em [$date_format]\n" >> "$log_path"
+    dunstify -u normal -t 6500 -i "$home/.config/dunst/icons/backup.png" "Backup realizado com sucesso em $date_format"
 else
-    printf "Erro ao realizar backup em $date_format" >> "$log_path"
+    printf "Erro ao realizar backup em $date_format" >> "$log_path. "
 fi
 
 # Remove backup file
