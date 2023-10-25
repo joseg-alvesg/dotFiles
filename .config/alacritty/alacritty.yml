@@ -16,7 +16,7 @@ env:
   TERM: alacritty
 
 import:
-  - ~/.config/alacritty/themes/cyber-punk-neon.yml
+  - ~/.config/alacritty/themes/tomorrow_night_bright.yaml
   - ~/.config/alacritty/fonts/JetBrainsMono.yml
 
 shell:
