@@ -9,7 +9,8 @@ lvim.keys.normal_mode["H"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["L"] = ":BufferLineCycleNext<CR>"
 
 lvim.transparent_window = true
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "shades_of_purple"
+lvim.airline_theme = "shades_of_purple"
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -106,6 +107,17 @@ lvim.plugins = {
   { "terryma/vim-multiple-cursors" },
   -- theme default
   { "folke/tokyonight.nvim" },
+  { "Rigellute/shades-of-purple.vim" },
+  { "ful1e5/onedark.nvim" },
+  {
+    "baliestri/aura-theme",
+    lazy = false,
+    priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+      vim.cmd([[colorscheme aura-dark]])
+    end
+  },
   -- for python
   {
     "AckslD/swenv.nvim",
