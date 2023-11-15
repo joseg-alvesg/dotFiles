@@ -12,6 +12,6 @@ if type "xrandr"; then
     polybar -r top -c ~/.config/polybar/config2.ini &
     polybar -r top_external -c ~/.config/polybar/config2.ini &
   else
-    polybar -r top -c ~/.config/polybar/config.ini &
+    polybar -r top -c ~/.config/polybar/config2.ini &
   fi
 fi

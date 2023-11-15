@@ -22,14 +22,14 @@ bspc rule -a Vivaldi-snapshot desktop='^2' follow=on
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Pcmanfm desktop='^5' follow=on
 bspc rule -a Thunar desktop='^5' follow=on
-bspc rule -a notion-app desktop='^6'
+bspc rule -a Notion desktop='^6'
 bspc rule -a Postman desktop='^7'
 bspc rule -a beekeeper-studio desktop='^7'
 bspc rule -a Spotify desktop='^8'
 bspc rule -a Stremio desktop='^8' follow=on
 bspc rule -a Slack desktop='^9'
 bspc rule -a zoom desktop='^9'
-bspc rule -a discord-screenaudio desktop='^9'
+bspc rule -a discord desktop='^9'
 bspc rule -a xfce4-terminal state=floating
 
 bspc rule -a WebApp-Excalidraw1017 desktop='^6' follow=on

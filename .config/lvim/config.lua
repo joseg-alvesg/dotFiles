@@ -30,7 +30,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "php",
 }
 
-
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -109,6 +108,8 @@ lvim.plugins = {
   { "folke/tokyonight.nvim" },
   { "Rigellute/shades-of-purple.vim" },
   { "ful1e5/onedark.nvim" },
+  -- java
+  { "mfussenegger/nvim-jdtls" },
   {
     "baliestri/aura-theme",
     lazy = false,
@@ -196,6 +197,9 @@ lvim.plugins = {
     end,
   },
 }
+
+--java
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 -- Setup markdown preview
 vim.g.mkdp_browser = 'electron'

@@ -15,6 +15,7 @@ set -g color_vi_mode_insert 3A0046
 set -g color_vi_mode_visual D900FF
 
 if status is-interactive
-  neofetch
+  # neofetch
   set -g EDITOR lvim
+  set -g fish_greeting ""
 end
