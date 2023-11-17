@@ -162,23 +162,7 @@ local mappings = {
     T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
     u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
     U = { "<Cmd>JdtWipeDataAndRestart<CR>", "Wipe Data and Restart" },
-    --   p = {
-    --     "<Cmd>!mvn compile && mvn exec:java -Dexec.mainClass='!(cat pom.xml | grep groupId | awk \"BEGIN {FS=\">\"; RS=\"<\"} {print \\$2}\" | head -n 2 ; echo '.' ; basename % | awk \"BEGIN {FS='.'} {print \\$1}\")' | tr -d '\\n'<CR>", "Run" },
-
-    -- p = {
-    --   "<Cmd>!mvn compile<CR>" ..
-    --   "<Cmd>!mvn exec:java -Dexec.mainClass='" ..
-    --   "(cat pom.xml | grep groupId | awk \"BEGIN {FS=\">\"; RS=\"<\"} {print $2}\" | head -n 2; " ..
-    --   "echo '.' ; basename % | awk \"BEGIN {FS='.'} {print $1}\")' | tr -d '\\n'<CR>",
-    --   "Run"
-    -- },
-    p = {
-      "<Cmd>!mvn compile<CR>" ..
-      "<Cmd>!mvn exec:java -Dexec.mainClass='" ..
-      "$(cat pom.xml | grep groupId | awk \"BEGIN {FS=\">\"; RS=\"<\"} {print $2}\" | head -n 2; " ..
-      "basename %:p:r | tr -d '.' )' | tr -d '\\n'<CR>",
-      "Run"
-    },
+    -- p = { "<Cmd>!mvn compile<CR>" .. "<Cmd>!mvn exec:java -Dexec.mainClass='" .. "$(cat pom.xml | grep groupId | awk \"BEGIN {FS=\">\"; RS=\"<\"} {print $2}\" | head -n 2; " .. "basename %:p:r | tr -d '.' )' | tr -d '\\n'<CR>", "Run" },
 
   },
 }
