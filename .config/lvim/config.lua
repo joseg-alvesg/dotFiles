@@ -17,6 +17,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
   "javascript",
+  "http",
   "json",
   "lua",
   "python",
@@ -117,6 +118,23 @@ lvim.plugins = {
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
       vim.cmd([[colorscheme aura-dark]])
+    end
+  },
+  -- rest client
+  { "nvim-lua/plenary.nvim" },
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("rest-nvim").setup({
+        result_split_horizontal = false,
+        skip_ssl_verification = false,
+        highlight = {
+          enabled = true,
+          timeout = 150,
+        },
+        jump_to_request = false,
+      })
     end
   },
   -- for python

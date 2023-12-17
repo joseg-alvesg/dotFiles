@@ -33,6 +33,7 @@ bspc rule -a discord desktop='^9'
 bspc rule -a xfce4-terminal state=floating
 
 bspc rule -a WebApp-Excalidraw1017 desktop='^6' follow=on
+bspc rule -a Calibre desktop='^6' follow=on
 bspc rule -a WebApp-Gmail3935 desktop='^7'
 bspc rule -a thunderbird desktop='^7'
 bspc rule -a WebApp-googlemeet4031 desktop='^9'
