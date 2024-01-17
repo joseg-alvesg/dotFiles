@@ -1,0 +1,28 @@
+window:
+  padding:
+    x: 1
+    y: 1
+  class:
+    instance: Alacritty
+    general: Alacritty
+  scrolling:
+    history: 10000
+    multiplier: 3
+  opacity: 0.95
+  decorations: full
+  dynamic_title: true
+
+env:
+  TERM: alacritty
+
+import:
+  - ~/.config/alacritty/themes/tomorrow_night_bright.yaml
+  - ~/.config/alacritty/fonts/JetBrainsMono.yml
+
+shell:
+  program: /usr/bin/fish
+  args:
+    - --login
+
+key_bindings:
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
