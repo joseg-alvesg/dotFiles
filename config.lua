@@ -1,1 +1,1 @@
-/home/cinho/dotFiles/.config/lvim/config.lua
+/home/cinho/.config/lvim/config.lua
