@@ -1,0 +1,1 @@
+/home/cinho/dotFiles/.config/lvim/config.lua
