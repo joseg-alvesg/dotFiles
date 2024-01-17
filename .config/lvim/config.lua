@@ -54,12 +54,8 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "eslint_d", filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
-  },
-  {
-    command = "flake8",
-    filetypes = { "python" }
-  },
+  { command = "eslint_d", filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" } },
+  { command = "flake8", filetypes = { "python" } },
   -- { command = "phpcs", filetypes = { "php" } },
 }
 
@@ -82,6 +78,10 @@ lsp_manager.setup("intelephense", {
 
 -- Additional Plugins
 lvim.plugins = {
+  { 'stevearc/flow-coverage.nvim' },
+  { 'andythigpen/nvim-coverage' },
+  { "rcasia/neotest-java" },
+  { "folke/neodev.nvim",          opts = {} },
   {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
@@ -91,6 +91,11 @@ lvim.plugins = {
         autotag = {
           enable = true,
         },
+        auto_install = false,
+        sync_install = false,
+        ensure_installed = {},
+        ignore_install = {},
+        modules = {}
       })
     end
   },
@@ -105,10 +110,11 @@ lvim.plugins = {
   { "github/copilot.vim" },
   { "tpope/vim-surround" },
   { "terryma/vim-multiple-cursors" },
-  -- theme default
+  -- theme
+  -- { "catppuccin/nvim", name = "catppuccin" },
+  -- { "EdenEast/nightfox.nvim" },
   { "folke/tokyonight.nvim" },
   { "Rigellute/shades-of-purple.vim" },
-  { "ful1e5/onedark.nvim" },
   -- java
   { "mfussenegger/nvim-jdtls" },
   {
@@ -145,22 +151,6 @@ lvim.plugins = {
     "nvim-neotest/neotest",
     "nvim-neotest/neotest-python",
   },
-  -- for ncm2
-  -- {
-  --   "ncm2/ncm2-vim-lsp",
-  --   event = "InsertEnter",
-  --   ft = { "php" },
-  --   config = function()
-  --     require("nvim-treesitter.configs").setup({
-  --       autotag = {
-  --         enable = true,
-  --       },
-  --     })
-  --   end,
-  --   "roxma/nvim-yarp",
-  --   "ncm2/ncm2-bufword",
-  --   "ncm2/ncm2-path",
-  -- },
   {
     "aca/emmet-ls",
     config = function()
@@ -254,23 +244,23 @@ dap.adapters.php = {
   command = "node",
   args = { mason_path .. "packages/php-debug-adapter/extension/out/phpDebug.js" },
 }
--- dap.configurations.php = {
---   {
---     name = "Listen for Xdebug",
---     type = "php",
---     request = "launch",
---     port = 9003,
---   },
---   {
---     name = "Debug currently open script",
---     type = "php",
---     request = "launch",
---     port = 9003,
---     cwd = "${fileDirname}",
---     program = "${file}",
---     runtimeExecutable = "php",
---   },
--- }
+dap.configurations.php = {
+  {
+    name = "Listen for Xdebug",
+    type = "php",
+    request = "launch",
+    port = 9003,
+  },
+  {
+    name = "Debug currently open script",
+    type = "php",
+    request = "launch",
+    port = 9003,
+    cwd = "${fileDirname}",
+    program = "${file}",
+    runtimeExecutable = "php",
+  },
+}
 
 -- setup debug adapter
 lvim.builtin.dap.active = true
@@ -295,16 +285,6 @@ require("neotest").setup({
   }
 })
 
-lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('neotest').run.run()<cr>",
-  "Test Method" }
-lvim.builtin.which_key.mappings["dM"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
-  "Test Method DAP" }
-lvim.builtin.which_key.mappings["df"] = {
-  "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" }
-lvim.builtin.which_key.mappings["dF"] = {
-  "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", "Test Class DAP" }
-lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" }
-
 require("swenv").setup({
   get_venvs = function(venvs_path)
     return require('swenv.api').get_venvs(venvs_path)
@@ -317,13 +297,16 @@ require("swenv").setup({
   end,
 })
 
-
--- binding for switching
-lvim.builtin.which_key.mappings["C"] = {
+lvim.builtin.which_key.mappings["P"] = {
   name = "Python",
-  -- c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
+  m = { "<cmd>lua require('neotest').run.run()<cr>", "Test Method" },
+  M = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Test Method DAP" },
+  f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" },
+  F = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", "Test Class DAP" },
+  S = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" },
   c = { "<cmd>lua require('swenv.api').pick_venv({venv_dir = '~/.virtualenvs/'})<cr>", "Choose Env" },
 }
+
 lvim.builtin.which_key.mappings["o"] = {
   name = "others",
   b = { "<cmd>norm yssb<cr>", "Entire line with ()" },
@@ -336,3 +319,8 @@ lvim.builtin.which_key.mappings["o"] = {
   W = { "<cm>'<,'>norm yss\"<cr>", "Entire line with \"\"" },
   y = { "<cmd>norm ysiw\"<cr>", "one word with \" " },
 }
+
+require("coverage").setup({})
+
+require("user.nvimtree")
+require('user.neotest')

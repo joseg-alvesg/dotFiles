@@ -1,0 +1,30 @@
+import = ["/home/cinho/.config/alacritty/themes/tomorrow_night_bright.toml", "/home/cinho/.config/alacritty/fonts/JetBrainsMono.toml"]
+
+[env]
+TERM = "alacritty"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Super|Shift"
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/fish"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.87
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 1
+y = 1
+
+# [window.scrolling]
+# history = 10000
+# multiplier = 3
