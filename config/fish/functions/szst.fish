@@ -1,3 +1,3 @@
 function szst
-du $argv | sort -h
+  du $argv | sort -h
 end

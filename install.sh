@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 OMF_PATH=~/.local/share/omf
 OMF_CONFIG=~/.config/omf
 FISH_CONFIG=~/.config/fish
@@ -27,9 +29,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #################################
-# Copy .config                  #
+# link files                    #
 #################################
-cp -Rv .config/ $HOME/
+bash ./home/scripts/linked_dotfiles.sh
 
 #################################
 # Copy .xinitrc/.tmux.conf      #
