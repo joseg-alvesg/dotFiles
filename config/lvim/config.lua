@@ -36,18 +36,10 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black",  extra_args = { "--line-length", '78' }, filetypes = { "python" } },
   { command = "isort",  filetypes = { "python" } },
-  -- HTML Template Linter and Formatter. Django - Jinja - Nunjucks - Handlebars - GoLang.
   { command = "djlint", extra_args = { "--reformat" },          filetypes = { "htmldjango" } },
-  {
-    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "prettier",
-    ---@usage arguments to pass to the formatter
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--print-with", "100" },
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "typescript", "javascript", "javascriptreact" },
-  },
+  { command = "prettier", extra_args = { "--print-with", "100" }, filetypes = { "typescript", "javascript", "javascriptreact" }, },
   { command = "phpcsfixer", filetypes = { "php" } },
+  -- { command = "google-java-format", filetypes = { "java" }, extra_args = { "--lines", "80"} },
 }
 
 
@@ -55,7 +47,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "eslint_d", filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" } },
-  { command = "flake8", filetypes = { "python" } },
+  { command = "flake8",   filetypes = { "python" } },
   -- { command = "phpcs", filetypes = { "php" } },
 }
 
@@ -207,7 +199,7 @@ lvim.plugins = {
 }
 
 --java
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 -- Setup markdown preview
 vim.g.mkdp_browser = 'electron'
