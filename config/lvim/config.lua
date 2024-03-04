@@ -34,10 +34,10 @@ lvim.builtin.treesitter.ensure_installed = {
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black",  extra_args = { "--line-length", '78' }, filetypes = { "python" } },
-  { command = "isort",  filetypes = { "python" } },
-  { command = "djlint", extra_args = { "--reformat" },          filetypes = { "htmldjango" } },
-  { command = "prettier", extra_args = { "--print-with", "100" }, filetypes = { "typescript", "javascript", "javascriptreact" }, },
+  { command = "black",      extra_args = { "--line-length", '78' }, filetypes = { "python" } },
+  { command = "isort",      filetypes = { "python" } },
+  { command = "djlint",     extra_args = { "--reformat" },          filetypes = { "htmldjango" } },
+  { command = "prettier",   extra_args = { "--print-with", "100" }, filetypes = { "typescript", "javascript", "javascriptreact" }, },
   { command = "phpcsfixer", filetypes = { "php" } },
   -- { command = "google-java-format", filetypes = { "java" }, extra_args = { "--lines", "80"} },
 }

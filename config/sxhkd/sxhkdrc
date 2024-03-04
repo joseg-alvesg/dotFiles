@@ -207,5 +207,5 @@ super + shift + n
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
 
-super + {_,shift + } u
+  super + {_,shift + } u
   {CM_LAUNCHER=rofi clipmenu, ~/.config/rofi/clipmenu_toggle.sh}
